@@ -5,6 +5,21 @@
 #include "binomial.h"
 //------------------------------
 
+class Binomial {
+private:
+  float coefficient1, coefficient2;
+  int power1, power2;
+public:
+  Binomial( float c1 = 1.0, float c2 = 1.0, int p1 = 1, int p2 = 1);
+  float GetCoefficient(float idx) const;
+  int GetPower(int idx) const;
+  int SetPower(int idx, int pwr);
+  int Add(const Binomial object);
+  void Multiply(float f);
+  void Multiply(float coefficient, int pwr);
+
+};
+
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
