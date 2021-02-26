@@ -6,19 +6,20 @@
 //------------------------------
 
 class Binomial {
-private:
-  float coefficient1, coefficient2;
-  int power1, power2;
+  float coefficient1;
+  float coefficient2;
+  int power1;
+  int power2;
 public:
-  Binomial( float c1 = 1.0, float c2 = 1.0, int p1 = 1, int p2 = 1);
-  float GetCoefficient(float idx) const;
-  int GetPower(int idx) const;
-  int SetPower(int idx, int pwr);
-  int Add(const Binomial object);
-  void Multiply(float f);
-  void Multiply(float coefficient, int pwr);
-
+  Binomial(float c1 = 1.0, float c2 = 1.0, int p1 = 1, int p2 = 1);
+  float GetCoefficient(float index);
+  int GetPower(int index);
+  int SetPower(int index, int value);
+  int Add(const Binomial &B);
+  void Multiply(float num);
+  void Multiply(float monoCoefficient, int monoPower);
 };
+
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
