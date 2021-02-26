@@ -50,10 +50,10 @@ int Binomial::SetPower(int index, int value){
   return 0;
 };
 
-int Binomial::Add(const Binomial &B){
-  if (power1 == B.power1 && power2 == B.power2){
-    coefficient1 += B.coefficient1;
-    coefficient2 += B.coefficient2;
+int Binomial::Add(const Binomial b){
+  if (power1 == b.power1 && power2 == b.power2){
+    coefficient1 += b.coefficient1;
+    coefficient2 += b.coefficient2;
 
     return 0;
   }
