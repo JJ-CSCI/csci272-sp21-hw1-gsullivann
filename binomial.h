@@ -1,17 +1,12 @@
-using namespace std;
-
 class Binomial {
-  float coefficient1;
-  float coefficient2;
-  int power1;
-  int power2;
+  double c1, c2;
+  int p1, p2;
 public:
-  Binomial(float c1 = 1.0, float c2 = 1.0, int p1 = 1, int p2 = 1);
-  float GetCoefficient(float index);
-  int GetPower(int index);
-  int SetPower(int index, int value);
-  int Add(const Binomial &B);
-  void Multiply(float num);
-  void Multiply(float monoCoefficient, int monoPower);
+  Binomial(double a1 = 1.0, int b1 = 1, double a2 = 1.0, int b2 = 1);
+  double GetCoefficient(int i);
+  int GetPower(int i);
+  int SetPower(int i, int e);
+  int Add(const Binomial &r);
+  void Multiply(double s);
+  void Multiply(double s, int e);
 };
-

@@ -1,72 +1,46 @@
 #include "binomial.h"
 
-Binomial::Binomial(float c1 = 1.0, float c2 = 1.0, int p1 = 1, int p2 = 1) {
-  coefficient1 = c1;
-  coefficient2 = c2;
-  if (p1 < 1)
-    power1 = 1;
-  else 
-    power1 = p1;
-  if (p2 < 1)
-    power2 = 1;
-  else
-    power2 = p2;
-};
-
-float Binomial::GetCoefficient(float index){
-  if (index == 1)
-    return coefficient1;
-  else if (index == 2)
-    return coefficient2;
-  else
-    return -1;
-};
-
-int Binomial::GetPower(int index){
-  if (index == 1)
-    return power1;
-  else if (index == 2)
-    return power2;
-  else 
-    return -1;
-};
-
-int Binomial::SetPower(int index, int value){
-  if (index == 1){
-    if (value < 1)
-      power1 = 1;
-    else 
-      power1 = value;
-  };
-  else if (index == 2){
-    if (value < 1)
-      power2 = 1;
-    else 
-      power2 = value;
-  };
-  else 
-    return -1;
-
-  return 0;
-};
-
-int Binomial::Add(const Binomial b){
-  if (power1 == b.power1 && power2 == b.power2){
-    coefficient1 += b.coefficient1;
-    coefficient2 += b.coefficient2;
-
-    return 0;
+Binomial::Binomial(double a1, int b1, double a2, int b2) :
+  c1{a1}, c2{a2}, p1{b1}, p2{b2} 
+  {
+    if (p1 < 1) p1 = 1;
+    if (p2 < 1) p2 =1;
   }
+
+double Binomial::GetCoefficient(int i){
+  if (i ==1) return c1;
+  if (i ==2) return c2;
+  return -1;
 }
-
-void Binomial::Multiply(float num){
-  coefficient1 *= num;
-  coefficient2 *= num;
-};
-
-void Binomial::Multiply(float monoCoefficient, int monoPower){
-  coefficient1 *= monoCoefficient;
-  coefficient2 *= monoCoefficient;
-  power1 += monoPower;
-  power2 += monoPower;
-};
+int Binomial::GetPower(int i){
+  if (i ==1) return p1;
+  if (i ==2) return p2;
+  return -1;
+}
+int Binomial::SetPower(int i, int e){
+  if (e < 1) e = 1;
+  switch(i) {
+    case 1:
+      p1 = e;
+      return 0;
+    case 2:
+      p2 = e;
+      return 0;
+    defulat:
+      return -1;
+  }
+int Binomial::Add(const Binomial &r){
+  if (!(p1 == r.p1 && p2 == r.p2)) return -1;
+  c1 += r.c1;
+  c2 += r.c2;
+  return 0;
+}
+void Binomial::Multiply(double s){
+  c1 *= s;
+  c2 *= s;
+}
+void Binomial::Multiply(double s, int e){
+  Multiply(s);
+  p1 += e;
+  p2 += e;
+}
